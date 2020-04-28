@@ -36,7 +36,9 @@ For example, if MemWrite and MemRead are false then you don't call the memory st
 
 		
 		//signals i have: memread, memwrite, PCsrc.
-		String display = ("Memory Access Stage: \n");
+		System.out.println("Memory Access Stage:");
+		CPU.finalOutput+="Memory Access Stage: \n";
+		String display = "";
 
 		//outputs defined:
 		int ALUres = ALUResult;

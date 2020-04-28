@@ -129,11 +129,11 @@ public class InstructionDecode {
 				
 			//BEQ
 			case "000100": 
-				signals.put("RegDst","1");
-				signals.put("Branch","x");
+				signals.put("RegDst","x");
+				signals.put("Branch","1");
 				signals.put("MemRead","0");
 				signals.put("MemtoReg","x");
-				signals.put("ALUOp","10");
+				signals.put("ALUOp","01");
 				signals.put("MemWrite","0");
 				signals.put("ALUSrc","0");
 				signals.put("RegWrite","0");
@@ -142,14 +142,14 @@ public class InstructionDecode {
 			default: CPU.finalOutput+="invalid opcode"; System.out.println("invalid opcode");return null;
 		}
 		
-		System.out.println("Inputs of ContUnit: \n" + "(A) opcode: " + opcode + "\nOutputs of ConUnit: (A)RegDst: " + signals.get("RegDst") + 
-				" | (B) Branch: " + signals.get("Branch") + " | (C) MemRead: " + signals.get("MemRead") + " | (D) MemToReg: " + signals.get("MemToReg")
-				+ " (E) ALUOp: " + signals.get("ALUOp") + " | (F) MemWrite: " + signals.get("MemWrite") + " | (G) ALUSrc: " + signals.get("ALUSrc")+
+		System.out.println("Inputs of ContUnit: " + "(A) opcode: " + opcode + "\nOutputs of ConUnit: (A) RegDst: " + signals.get("RegDst") + 
+				" | (B) Branch: " + signals.get("Branch") + " | (C) MemRead: " + signals.get("MemRead") + " | (D) MemToReg: " + signals.get("MemtoReg")
+				+ " | (E) ALUOp: " + signals.get("ALUOp") + " | (F) MemWrite: " + signals.get("MemWrite") + " | (G) ALUSrc: " + signals.get("ALUSrc")+
 				" | (H) RegWrite: " + signals.get("RegWrite") + "\n-------------------------------------------------------------------------------");
 		
-		CPU.finalOutput+=("Inputs of ContUnit: \n" + "(A) opcode: " + opcode + "\nOutputs of ConUnit: (A)RegDst: " + signals.get("RegDst") + 
-				" | (B) Branch: " + signals.get("Branch") + " | (C) MemRead: " + signals.get("MemRead") + " | (D) MemToReg: " + signals.get("MemToReg")
-				+ " (E) ALUOp: " + signals.get("ALUOp") + " | (F) MemWrite: " + signals.get("MemWrite") + " | (G) ALUSrc: " + signals.get("ALUSrc")+
+		CPU.finalOutput+=("Inputs of ContUnit: " + "(A) opcode: " + opcode + "\nOutputs of ConUnit: (A) RegDst: " + signals.get("RegDst") + 
+				" | (B) Branch: " + signals.get("Branch") + " | (C) MemRead: " + signals.get("MemRead") + " | (D) MemToReg: " + signals.get("MemtoReg")
+				+ " | (E) ALUOp: " + signals.get("ALUOp") + " | (F) MemWrite: " + signals.get("MemWrite") + " | (G) ALUSrc: " + signals.get("ALUSrc")+
 				" | (H) RegWrite: " + signals.get("RegWrite") + "\n-------------------------------------------------------------------------------\n");
 		
 		return signals;

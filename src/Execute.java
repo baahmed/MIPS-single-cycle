@@ -90,7 +90,7 @@ public class Execute {
 		//inputs: String ALUop, String ALUsrc, int readData1, int readData2, String signExtend, int PCby4, String funct
 		display+="Inputs of Execute: (A) ALUop: " + ALUop + " | (B) ALUsrc: " + ALUsrc + " | (C) readData1: " +  readData1
 				+ " | (D) readData2: " + readData2 + " | (E) signExtend: " + signExtend + " | (F) PC+by4: " +  PCby4 + " | (G) funct: " + funct 
-				+"\nOutputs of Execute: (A) ALUresult: " + ret.get("ALUresult") + " | (B) Zlfag: " + ret.get("ZFlag") + " | (C) branchAddressResult"
+				+"\nOutputs of Execute: (A) ALUresult: " + ret.get("ALUresult") + " | (B) Zlfag: " + ret.get("ZFlag") + " | (C) branchAddressResult: "
 				+ ret.get("branchAddressResult") +  " | (D) PC+by4: " + ret.get("PCby4") + 
 				"\n-------------------------------------------------------------------------------";
 		
@@ -104,7 +104,7 @@ public class Execute {
 	public String ALUControl(String ALUOp, String funct) {
 		
 		String op = "";
-		if(funct == null) {
+		if(ALUOp.equals("00")||ALUOp.equals("01")) {
 			switch(ALUOp) {
 				case "00": op = "0010";break;
 				case "01": op = "0110";break;

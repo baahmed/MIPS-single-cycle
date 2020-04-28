@@ -10,7 +10,9 @@ public class DataMemory {
 	
 	public void writeData(int data, int memAddress) {
 		dataAddresses[memAddress] = data;
-		System.out.println(Arrays.toString(dataAddresses));
+		System.out.println("Data " + data + " was successfully written to address " + memAddress +".");
+		CPU.finalOutput+=("Data " + data + " was successfully written to address " + memAddress +"."+"\n");
+		//System.out.println(Arrays.toString(dataAddresses));
 	}
 	
 	public int readData(int memAddress) {

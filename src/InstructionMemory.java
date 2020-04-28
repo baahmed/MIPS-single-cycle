@@ -101,7 +101,7 @@ public class InstructionMemory {
 		 * source: https://en.wikibooks.org/wiki/MIPS_Assembly/MIPS_Details
 		 */
 		
-		this.addInstruction("00000001001010100100000000100000");
+		//this.addInstruction("00000001001010100100000000100000");
 		
 		
 		/*load a subtract
@@ -143,6 +143,10 @@ public class InstructionMemory {
 		 */
 		
 		//addInstruction("10101100001000110000000000000100");
+		
+		/*load an and 
+		 * 
+		 */
 		
 		 //TODO: ADD these: and, or, slt 
 		

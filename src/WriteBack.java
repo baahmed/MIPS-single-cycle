@@ -10,7 +10,10 @@ public class WriteBack {
 	public int writeBack(int ALUResult, int ReadData, String memToReg, String regDst, String regWrite, String rt, String rd) {
 		int writeData = -1; //meaning no data was written
 		//output will be the data to be written into the write register.
-		String display = "Write Back Stage: \n";
+		System.out.println("Write Back Stage:");
+	    CPU.finalOutput+="Write Back Stage: \n";
+		String display="";
+		
 		if(regWrite.equals("1")) {
 			
 			if(memToReg.equals("1")) {
@@ -34,9 +37,14 @@ public class WriteBack {
 			
 			else {
 				display+="No data was written back to the register file.\n";
-			}
-			
+		    }
 		}
+			
+		else {
+				display+="No data was written back to the register file.\n";
+		}
+		
+		
 		
 		
 		display+=("Inputs of WriteBack: (A) ALUResult: " + ALUResult + " | (B) ReadDataFromMem: " + ReadData + " | (C) memToReg: " + memToReg
