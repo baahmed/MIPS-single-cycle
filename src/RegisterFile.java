@@ -19,10 +19,14 @@ public class RegisterFile {
 		
 		if (register!=0) {
 			registers[register] = value;
+			String disp = "Loaded value " + value + " to register " + register  + ".";
+			System.out.println(disp);
+			CPU.finalOutput+=(disp+"\n");
 		}
 		
 		else {
-			System.out.println("Cannot write to register 0.");
+			System.out.println("Cannot write to register 0. Value remains 0.");
+			CPU.finalOutput+="Cannot write to register 0. Value remains 0.";
 		}
 	}
 	

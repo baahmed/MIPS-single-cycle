@@ -6,7 +6,10 @@ public class CPU {
 	
 	public static String finalOutput = ""; //write this to a file.
 
-
+	//TODO all outputs in binary
+	//TODO single cycle implementation explanation
+	//TODO explain format
+	//TODO add 3 examples with branching
 	/*
 	 * output to look like the project + all stage outputs
 	 */
@@ -14,8 +17,19 @@ public class CPU {
 	public static void main(String[] args) {
 		
 		InstructionFetch IF = new InstructionFetch();
+		InstructionDecode ID = new InstructionDecode();
+		Execute EXEC = new Execute();
+		MemoryAccess M = new MemoryAccess(IF);
+		WriteBack WB = new WriteBack(ID);
+		
+		int i = 0;
 		
 		while(!IF.done()) { //TODO: handle branching! (setPC should take care of that)
+			
+			
+			System.out.println("Clock Cycle " + i);
+			i++;
+			
 			
 			//test cases:
 			//make sure all added instructions are indeed added and PC is corrected.

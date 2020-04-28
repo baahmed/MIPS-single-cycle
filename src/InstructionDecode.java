@@ -151,6 +151,10 @@ public class InstructionDecode {
 		
 	}
 	
+	public void writeToRF(int val, int reg) {
+		RF.loadValueToRegister(val,reg);
+	}
+	
 	public static void main(String [] args) {
 	}
 }
