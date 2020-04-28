@@ -72,7 +72,7 @@ For example, if MemWrite and MemRead are false then you don't call the memory st
 		display+=("Inputs of MemAccess: (A) ALUResult: " + ALUResult + " | (B) readData2: " +  readData2 + " | (C) SignExtend: " + SignExtend + 
 				" | (D) ZeroFlag: " + ZeroFlag + " | (E) branchAddressResult: " + branchAddressResult + " | (F) MemWrite: " + MemWrite + 
 				" | (G) MemRead: " + MemRead + " | (H) Branch: " + Branch + "\nOutputs of MemAccess: (A) ALUresult: " + ALUres + " | (B) readDataFromMem: "
-				+readdata);		
+				+readdata+"\n-------------------------------------------------------------------------------");		
 		
 		System.out.println(display);
 		CPU.finalOutput+=(display+"\n");

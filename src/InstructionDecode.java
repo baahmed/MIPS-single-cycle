@@ -160,6 +160,10 @@ public class InstructionDecode {
 		RF.loadValueToRegister(val,reg);
 	}
 	
+	public void setRegWrite(String x) {
+		RF.setRegWrite(x);
+	}
+	
 	public static void main(String [] args) {
 	}
 }

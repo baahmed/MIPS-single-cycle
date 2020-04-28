@@ -6,7 +6,7 @@ public class RegisterFile {
 	int rt; //20-16 source or destination
 	int rd; //15-11 destination, for writes
 	int [] registers; //to keep track of 32 registers and their data
-	boolean writeControl;
+	String regWrite;
 	
 	
 	public RegisterFile() {
@@ -16,18 +16,22 @@ public class RegisterFile {
 	
 	
 	public void loadValueToRegister(int value, int register) {
-		
-		if (register!=0) {
-			registers[register] = value;
-			String disp = "Loaded value " + value + " to register " + register  + ".";
-			System.out.println(disp);
-			CPU.finalOutput+=(disp+"\n");
+		if(regWrite.equals("1")) {
+			
+			if (register!=0) {
+				registers[register] = value;
+				String disp = "Loaded value " + value + " to register " + register  + ".";
+				System.out.println(disp);
+				CPU.finalOutput+=(disp+"\n");
+			}
+			
+			else {
+				System.out.println("Cannot write to register 0. Value remains 0.");
+				CPU.finalOutput+="Cannot write to register 0. Value remains 0.";
+			}
+			
 		}
 		
-		else {
-			System.out.println("Cannot write to register 0. Value remains 0.");
-			CPU.finalOutput+="Cannot write to register 0. Value remains 0.";
-		}
 	}
 	
 	public int readValueAt(int value) {
@@ -56,6 +60,16 @@ public class RegisterFile {
 		}
 		
 		showState();
+	}
+	
+	public void setRegWrite(String x) {
+		this.regWrite = x;
+		if(x.equals("1")) {
+			String disp = "regWrite set successfully to 1";
+			System.out.println(disp);
+			CPU.finalOutput+=(disp+"\n");
+		}
+			
 	}
 	
 }

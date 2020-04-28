@@ -30,7 +30,10 @@ Memory Access Stage:
 No data was read from or written to memory.
 Inputs of MemAccess: (A) ALUResult: 23 | (B) readData2: 12 | (C) SignExtend: 00000000000000000100000000100000 | (D) ZeroFlag: 0 | (E) branchAddressResult: 65668 | (F) MemWrite: 0 | (G) MemRead: 0 | (H) Branch: 0
 Outputs of MemAccess: (A) ALUresult: 23 | (B) readDataFromMem: -1
+-------------------------------------------------------------------------------
+regWrite set successfully to 1
 Loaded value 23 to register 8.
 Write Back Stage: 
 Inputs of WriteBack: (A) ALUResult: 23 | (B) ReadDataFromMem: -1 | (C) memToReg: 0 | (D) regDst: 1 | (E) regWrite: 1
 Outputs of WriteBack: (A) DataWritten: 23
+-------------------------------------------------------------------------------
