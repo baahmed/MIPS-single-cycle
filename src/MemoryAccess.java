@@ -20,6 +20,15 @@ For example, if MemWrite and MemRead are false then you don't call the memory st
 	 * and this value is the output of the method InstDecode. Finally, we need to set the corresponding signals for memory accessing.
 	 */
 	
+	DataMemory DM;
+	
+	public MemoryAccess() {
+		DM = new DataMemory(256);
+		DM.loadValues();
+	}
+	
+	
+	
 	public Hashtable<String, Integer> MemAccess(int ALUResult, int readData2, String SignExtend, String ZeroFlag, int branchAddressResult, 
 			String MemWrite, String MemRead, String Branch){
 		//output ALUresult and readdata2 to see in WB which will be written back to register.

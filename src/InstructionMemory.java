@@ -153,10 +153,10 @@ public class InstructionMemory {
 	
 	public void displayState() {
 		
-		System.out.println("Memory state:");
+		System.out.println("Instruction Memory state:");
 		System.out.println(Arrays.toString(memoryArray));
 		System.out.println("-------------------------------------------------------------------------------");
-		CPU.finalOutput+=("Memory state: " +"\n"+Arrays.toString(memoryArray) + "\n----------"
+		CPU.finalOutput+=("Instruction Memory state: " +"\n"+Arrays.toString(memoryArray) + "\n----------"
 				+ "---------------------------------------------------------------------\n");
 	}
 	

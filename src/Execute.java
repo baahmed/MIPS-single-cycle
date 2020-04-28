@@ -91,7 +91,8 @@ public class Execute {
 		display+="Inputs of Execute: (A) ALUop: " + ALUop + " | (B) ALUsrc: " + ALUsrc + " | (C) readData1: " +  readData1
 				+ " | (D) readData2: " + readData2 + " | (E) signExtend: " + signExtend + " | (F) PC+by4: " +  PCby4 + " | (G) funct: " + funct 
 				+"\nOutputs of Execute: (A) ALUresult: " + ret.get("ALUresult") + " | (B) Zlfag: " + ret.get("ZFlag") + " | (C) branchAddressResult"
-				+ ret.get("branchAddressResult") +  " | (D) PC+by4: " + ret.get("PCby4");
+				+ ret.get("branchAddressResult") +  " | (D) PC+by4: " + ret.get("PCby4") + 
+				"\n-------------------------------------------------------------------------------";
 		
 		System.out.println(display);
 		CPU.finalOutput+=(display+"\n");
