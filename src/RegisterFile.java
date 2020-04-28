@@ -37,4 +37,11 @@ public class RegisterFile {
 		CPU.finalOutput+= (Arrays.toString(registers)+ "\n-------------------------------------------------------------------------------\n");
 	}
 	
+	public int[] readValues(int rs, int rt, int rd) {
+		int[] ret = new int[2];
+		ret[0] = readValueAt(rs);
+		ret[1] = readValueAt(rt);
+		return ret;
+	}
+	
 }

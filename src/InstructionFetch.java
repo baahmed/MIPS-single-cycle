@@ -55,10 +55,10 @@ public class InstructionFetch {
 		
 		////////////////////////////////////////////////////////
 		
-		System.out.println("Inputs of InstFetch: (A) PCaddress: " + PCaddress + "\nOutputs of InstFetch: (A) Istruction: " +
+		System.out.println("Inputs of InstFetch: (A) PCaddress: " + PCaddress + "\nOutputs of InstFetch: (A) Instruction: " +
 		(String)output.get("Instruction")+ " | (B) PC+by4: " + output.get("PCby4"));
 		System.out.println("-------------------------------------------------------------------------------");
-		CPU.finalOutput+=("Inputs of InstFetch: (A) PCaddress: " + PCaddress + "\nOutputs of InstFetch: (A) Istruction: " +
+		CPU.finalOutput+=("Inputs of InstFetch: (A) PCaddress: " + PCaddress + "\nOutputs of InstFetch: (A) Instruction: " +
 				(String)output.get("Instruction")+ " | (B) PC+by4: " + output.get("PCby4") + "\n-------------------------------------------------------------------------------\n");
 		
 		return output;

@@ -2,6 +2,10 @@ import java.util.Hashtable;
 
 public class InstructionDecode {
 	
+	private RegisterFile RF;
+	public static int PC; 
+	
+	
 	
 	public Hashtable<String,Object> InstDecode(String instructionFetched, int PC){
 		/*
@@ -10,6 +14,10 @@ public class InstructionDecode {
 		 */
 		
 		//first step: decode all parts. 
+		System.out.println("Instruction decode stage:");
+		CPU.finalOutput+="Instruction decode stage:\n";
+		this.PC = PC;
+		
 		String opcode = instructionFetched.substring(0,6);
 		String rs = instructionFetched.substring(6,11);
 		String rt = instructionFetched.substring(11,16);
@@ -21,8 +29,26 @@ public class InstructionDecode {
 		
 		Hashtable<String,String> signals = ContUnit(opcode);
 		
+		int[] readdata_1_2 = RF.readValues(Integer.parseInt(rs,2),Integer.parseInt(rt,2),Integer.parseInt(rd,2));
 		
 		
+		
+		Hashtable<String,Object> ret = new Hashtable<String, Object>();
+		ret.put("signals", signals);
+		ret.put("readdata1", readdata_1_2[0]);
+		ret.put("readdata2", readdata_1_2[1]);
+		ret.put("PCby4",PC);
+		ret.put("funct", funct);
+		
+		
+		System.out.println("Inputs of InstDecode: (A) instruction: " + instructionFetched + " | (B) PC+by4: " + PC +"\nOutputs of InstDecode:"
+				+ "(A) control signals: refer to contUnit output (the helper) | (B) ReadData1: " + ret.get("readdata1") + " | (C) ReadData2: "
+				+ret.get("readdata2") + " | (D) PC: " + PC + "\n-------------------------------------------------------------------------------");
+		CPU.finalOutput+=("Inputs of InstDecode: (A) instruction: " + instructionFetched + " | (B) PC+by4: " + PC +"\nOutputs of InstDecode:"
+				+ "(A) control signals: refer to contUnit output (the helper) | (B) ReadData1: " + ret.get("readdata1") + " | (C) ReadData2: "
+				+ret.get("readdata2") + " | (D) PC: " + PC + "\n-------------------------------------------------------------------------------\n");
+		
+		return ret;
 		
 	}
 	
@@ -38,6 +64,11 @@ public class InstructionDecode {
 		 */
 		String extended = (immNotExtend.charAt(0)=='0')?("0000000000000000"+immNotExtend) : ("1111111111111111"+immNotExtend) ;
 		
+		
+		System.out.println("Inputs of SignExtend: (A) immediate (16 bits): " + immNotExtend + "\nOutputs of SignExtend: (A) immediate (32 bits): "
+				+ extended + "\n-------------------------------------------------------------------------------");
+		CPU.finalOutput+=("Inputs of SignExtend: (A) immediate (16 bits): " + immNotExtend + "\nOutputs of SignExtend: (A) immediate (32 bits): "
+				+ extended + "\n-------------------------------------------------------------------------------\n");
 		return extended;
 	}
 	
@@ -100,6 +131,16 @@ public class InstructionDecode {
 			
 			default: CPU.finalOutput+="invalid opcode"; System.out.println("invalid opcode");return null;
 		}
+		
+		System.out.println("Inputs of ContUnit: \n" + "(A) opcode: " + opcode + "\nOutputs of ConUnit: (A)RegDst: " + signals.get("RegDst") + 
+				" | (B) Branch: " + signals.get("Branch") + " | (C) MemRead: " + signals.get("MemRead") + " | (D) MemToReg: " + signals.get("MemToReg")
+				+ " (E) ALUOp: " + signals.get("ALUOp") + " | (F) MemWrite: " + signals.get("MemWrite") + " | (G) ALUSrc: " + signals.get("ALUSrc")+
+				" | (H) RegWrite: " + signals.get("RegWrite") + "\n-------------------------------------------------------------------------------");
+		
+		CPU.finalOutput+=("Inputs of ContUnit: \n" + "(A) opcode: " + opcode + "\nOutputs of ConUnit: (A)RegDst: " + signals.get("RegDst") + 
+				" | (B) Branch: " + signals.get("Branch") + " | (C) MemRead: " + signals.get("MemRead") + " | (D) MemToReg: " + signals.get("MemToReg")
+				+ " (E) ALUOp: " + signals.get("ALUOp") + " | (F) MemWrite: " + signals.get("MemWrite") + " | (G) ALUSrc: " + signals.get("ALUSrc")+
+				" | (H) RegWrite: " + signals.get("RegWrite") + "\n-------------------------------------------------------------------------------\n");
 		
 		return signals;
 		
