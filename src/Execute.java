@@ -33,6 +33,69 @@ public class Execute {
 		 * output: ALU result, zero flag, branchAddressResult, readdata2, PCby4
 		 * 
 		 */
+		Hashtable<String, Object> ret = new Hashtable<String, Object>();
 		
+		//take it part by part
+		
+		//first of all: calculating the branch address.
+		/*
+		 * 
+		 */
+		
+		//deal with the immediate
+		String unsigned = signExtend.substring(17,32);
+		int number = Integer.parseInt(unsigned,2);
+				
+		if(signExtend.charAt(0)=='1') {
+			number=number*-1;
+		}
+		
+		int ALUnum = number; //to be used as immediate for ALU.
+		
+		//in case of branch address - we need not worry about the 32nd bit. Java's range is signed, just like our application. Please not that
+		//java uses 2s complement.
+		int branchAdd = number << 2; //shift the number obtained by 2 bits.
+		
+		
+		
+		
+		int operand1 = readData1;
+		int operand2 = (ALUsrc=="0")? readData2 : ALUnum;
+		
+		
+		//do ALUControl!
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		return ret;
+	}
+	
+	public static void main(String[] args) {
+		
+		String binaryString = Integer.toBinaryString(2);
+		String withLeadingZeros = String.format("%8s", binaryString).replace(' ', '0');
+		//System.out.println(withLeadingZeros);
+		
+		int num = -2147483647;
+		num = num <<2;
+		
+		
+		System.out.println(Integer.toBinaryString(-2147483647));
+
 	}
 }
