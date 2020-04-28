@@ -111,7 +111,7 @@ public class InstructionMemory {
 		 *source: https://www3.ntu.edu.sg/home/smitha/FYP_Gerald/instruction.html
 		 */
 		
-		addInstruction("00000001000000110001000000100010");
+		//addInstruction("00000001000000110001000000100010");
 	
 		
 		/*load a beq
@@ -122,7 +122,7 @@ public class InstructionMemory {
 		 * source: https://stackoverflow.com/questions/21802457/mips-calculating-beq-into-hexadecimal-machine-code 
 		 */
 		
-		addInstruction("00010001011011010000000000010000");
+		//addInstruction("00010001011011010000000000010000");
 
 		
 		/*load a lw
@@ -132,7 +132,7 @@ public class InstructionMemory {
 		 * source: PA5
 		 */
 		
-		addInstruction("10001100001000110000000000000100");
+		//addInstruction("10001100001000110000000000000100");
 		
 		
 		/*load a sw
@@ -142,7 +142,7 @@ public class InstructionMemory {
 		 *source: PA5
 		 */
 		
-		addInstruction("10101100001000110000000000000100");
+		//addInstruction("10101100001000110000000000000100");
 		
 		 //TODO: ADD these: and, or, slt 
 		

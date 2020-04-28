@@ -7,7 +7,7 @@ public class WriteBack {
 		this.ID = ID;
 	}
 	
-	public int WriteBack(int ALUResult, int ReadData, String memToReg, String regDst, String regWrite) {
+	public int writeBack(int ALUResult, int ReadData, String memToReg, String regDst, String regWrite) {
 		int writeData = -1; //meaning no data was written
 		//output will be the data to be written into the write register.
 		String display = "Write Back Stage: \n";

@@ -31,7 +31,7 @@ For example, if MemWrite and MemRead are false then you don't call the memory st
 	
 	
 
-	public Hashtable<String, Integer> MemAccess(int ALUResult, int readData2, String SignExtend, String ZeroFlag, int branchAddressResult, 
+	public Hashtable<String, Integer> MemAccess(int ALUResult, int readData2, String SignExtend, int ZeroFlag, int branchAddressResult, 
 			String MemWrite, String MemRead, String Branch){
 
 		
@@ -43,7 +43,7 @@ For example, if MemWrite and MemRead are false then you don't call the memory st
 		int readdata = -1;
 		
 		//first of all: deal with the PC setting.
-		if(ZeroFlag.equals("1")&&Branch.equals("1")) {
+		if((ZeroFlag==1)&&Branch.equals("1")) {
 			IF.setPC(branchAddressResult);
 			//and else leave it as it is.
 		}
