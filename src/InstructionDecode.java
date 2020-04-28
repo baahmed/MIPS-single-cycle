@@ -3,7 +3,12 @@ import java.util.Hashtable;
 public class InstructionDecode {
 	
 	private RegisterFile RF;
-	public static int PC; 
+	public int PC; 
+	
+	public InstructionDecode() {
+		RF = new RegisterFile();
+		RF.loadValues();
+	}
 	
 	
 	

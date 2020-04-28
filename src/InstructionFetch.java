@@ -14,14 +14,12 @@ public class InstructionFetch {
 	 */
 	
 	private InstructionMemory IM;
-	private ALU adder;
-	public static int PC;
+	public int PC;
 	
 
 	public InstructionFetch() {
 		IM = new InstructionMemory(256); //set up a 256-word instruction memory.
 		IM.loadProgram();
-		adder = new ALU(); //to increment PC.
 		PC = IM.getPC();
 	}
 	

@@ -55,6 +55,10 @@ public class ALU {
 		return output;
 		
 	}
+	
+	public int getZFlag() {
+		return zflag;
+	}
 
 	
 	//calculation helpers

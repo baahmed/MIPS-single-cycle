@@ -31,10 +31,11 @@ public class RegisterFile {
 	}
 	
 	public void showState() {
+		System.out.println("Register File State");
 		System.out.println(Arrays.toString(registers));
 		System.out.println("-------------------------------------------------------------------------------");
 
-		CPU.finalOutput+= (Arrays.toString(registers)+ "\n-------------------------------------------------------------------------------\n");
+		CPU.finalOutput+= ("Register File State\n"+Arrays.toString(registers)+ "\n-------------------------------------------------------------------------------\n");
 	}
 	
 	public int[] readValues(int rs, int rt, int rd) {
@@ -42,6 +43,15 @@ public class RegisterFile {
 		ret[0] = readValueAt(rs);
 		ret[1] = readValueAt(rt);
 		return ret;
+	}
+	
+	
+	public void loadValues() {
+		for (int i = 0; i<32;i++) {
+			registers[i] = i+2;
+		}
+		
+		showState();
 	}
 	
 }

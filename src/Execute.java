@@ -26,21 +26,23 @@ public class Execute {
 	
 	//find the ALU 4 bits operation here
 
+	ALU alu;
+	int PC;
 	
+	public Execute() {
+		alu = new ALU();
+	}
 	
 	public Hashtable<String, Object> Execute(String ALUop, String ALUsrc, int readData1, int readData2, String signExtend, int PCby4, String funct){
 		/*
 		 * output: ALU result, zero flag, branchAddressResult, readdata2, PCby4
 		 * 
 		 */
+		String display = "Execute Stage: \n";
+
+		this.PC = PCby4;
 		Hashtable<String, Object> ret = new Hashtable<String, Object>();
-		
-		//take it part by part
-		
-		//first of all: calculating the branch address.
-		/*
-		 * 
-		 */
+	
 		
 		//deal with the immediate
 		String unsigned = signExtend.substring(17,32);
@@ -57,45 +59,90 @@ public class Execute {
 		int branchAdd = number << 2; //shift the number obtained by 2 bits.
 		
 		
-		
+	    //determine ALU operands	
 		
 		int operand1 = readData1;
 		int operand2 = (ALUsrc=="0")? readData2 : ALUnum;
 		
 		
-		//do ALUControl!
+		//do ALUControl
+		String ALUoperation = ALUControl(ALUop, funct);
+		
+		//find ALU result.
+		int result = alu.ALUEvaluator(ALUoperation,operand1,operand2);
+		int zflag = alu.getZFlag();
+		
+		//find branching result:
+		
+		int branchResult = PC + branchAdd;
 		
 		
+		/*
+		 * output: ALU result, zero flag, branchAddressResult, readdata2, PCby4
+		 * 
+		 */
 		
+		ret.put("ALUresult", result);
+		ret.put("ZFlag", zflag);
+		ret.put("branchAddressResult", branchResult);
+		ret.put("PCby4",PC);
 		
+		//inputs: String ALUop, String ALUsrc, int readData1, int readData2, String signExtend, int PCby4, String funct
+		display+="Inputs of Execute: (A) ALUop: " + ALUop + " | (B) ALUsrc: " + ALUsrc + " | (C) readData1: " +  readData1
+				+ " | (D) readData2: " + readData2 + " | (E) signExtend: " + signExtend + " | (F) PC+by4: " +  PCby4 + " | (G) funct: " + funct 
+				+"\nOutputs of Execute: (A) ALUresult: " + ret.get("ALUresult") + " | (B) Zlfag: " + ret.get("ZFlag") + " | (C) branchAddressResult"
+				+ ret.get("branchAddressResult") +  " | (D) PC+by4: " + ret.get("PCby4");
 		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		System.out.println(display);
+		CPU.finalOutput+=(display+"\n");
 		
 		return ret;
 	}
 	
+	
+	public String ALUControl(String ALUOp, String funct) {
+		
+		String op = "";
+		if(funct == null) {
+			switch(ALUOp) {
+				case "00": op = "0010";break;
+				case "01": op = "0110";break;
+				default: System.out.println("ALU control error: ALUOp incorrectly set."); CPU.finalOutput+="ALU control error: ALUOp incorrectly set.\n";
+						op = null;
+			}
+		}
+		
+		else {
+			//so OP is 10
+			if(ALUOp.equals("10")) {
+				switch(funct) {
+					case "100000":op="0010";break;
+					case "100010":op="0110";break;
+					case "100100":op="0000";break;
+					case "100101":op="0001";break;
+					case "101010":op="0111";break;
+					default:System.out.println("ALU control error: funct incorrectly set."); CPU.finalOutput+="ALU control error: funct incorrectly set.\n";
+					op = null;
+				}
+			}
+		}
+		
+		return op;
+		
+	}
+	
+	
 	public static void main(String[] args) {
 		
-		String binaryString = Integer.toBinaryString(2);
-		String withLeadingZeros = String.format("%8s", binaryString).replace(' ', '0');
-		//System.out.println(withLeadingZeros);
-		
-		int num = -2147483647;
-		num = num <<2;
-		
-		
-		System.out.println(Integer.toBinaryString(-2147483647));
+//		String binaryString = Integer.toBinaryString(2);
+//		String withLeadingZeros = String.format("%8s", binaryString).replace(' ', '0');
+//		//System.out.println(withLeadingZeros);
+//		
+//		int num = -2147483647;
+//		num = num <<2;
+//		
+//		
+//		System.out.println(Integer.toBinaryString(-2147483647));
 
 	}
 }
