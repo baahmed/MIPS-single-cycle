@@ -20,7 +20,7 @@ Inputs of SignExtend: (A) immediate (16 bits): 0100000000100000
 Outputs of SignExtend: (A) immediate (32 bits): 00000000000000000100000000100000
 -------------------------------------------------------------------------------
 Inputs of InstDecode: (A) instruction: 00000001001010100100000000100000 | (B) PC+by4: 4
-Outputs of InstDecode:(A) control signals: refer to contUnit output (the helper) | (B) ReadData1: 11 | (C) ReadData2: 12 | (D) PC: 4 | (E) for sign extension, check SignExtend.
+Outputs of InstDecode:(A) control signals: refer to contUnit output (the helper) | (B) ReadData1: 11 | (C) ReadData2: 12 | (D) PC: 4 | (E) for sign extension, check SignExtend. | (F) rt: 01010 (G) rd: 01000
 -------------------------------------------------------------------------------
 Execute Stage: 
 Inputs of Execute: (A) ALUop: 10 | (B) ALUsrc: 0 | (C) readData1: 11 | (D) readData2: 12 | (E) signExtend: 00000000000000000100000000100000 | (F) PC+by4: 4 | (G) funct: 100000
@@ -30,7 +30,7 @@ Memory Access Stage:
 No data was read from or written to memory.
 Inputs of MemAccess: (A) ALUResult: 23 | (B) readData2: 12 | (C) SignExtend: 00000000000000000100000000100000 | (D) ZeroFlag: 0 | (E) branchAddressResult: 65668 | (F) MemWrite: 0 | (G) MemRead: 0 | (H) Branch: 0
 Outputs of MemAccess: (A) ALUresult: 23 | (B) readDataFromMem: -1
-Loaded value 23 to register 1.
+Loaded value 23 to register 8.
 Write Back Stage: 
 Inputs of WriteBack: (A) ALUResult: 23 | (B) ReadDataFromMem: -1 | (C) memToReg: 0 | (D) regDst: 1 | (E) regWrite: 1
 Outputs of WriteBack: (A) DataWritten: 23

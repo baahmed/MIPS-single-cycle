@@ -45,14 +45,18 @@ public class InstructionDecode {
 		ret.put("PCby4",PC);
 		ret.put("funct", funct);
 		ret.put("extended", extended);
+		ret.put("rt",rt);
+		ret.put("rd",rd);
 		
 		
 		System.out.println("Inputs of InstDecode: (A) instruction: " + instructionFetched + " | (B) PC+by4: " + PC +"\nOutputs of InstDecode:"
 				+ "(A) control signals: refer to contUnit output (the helper) | (B) ReadData1: " + ret.get("readdata1") + " | (C) ReadData2: "
-				+ret.get("readdata2") + " | (D) PC: " + PC + " | (E) for sign extension, check SignExtend."+"\n-------------------------------------------------------------------------------");
+				+ret.get("readdata2") + " | (D) PC: " + PC + " | (E) for sign extension, check SignExtend."+
+				" | (F) rt: " + rt + " (G) rd: "+ rd +"\n-------------------------------------------------------------------------------");
 		CPU.finalOutput+=("Inputs of InstDecode: (A) instruction: " + instructionFetched + " | (B) PC+by4: " + PC +"\nOutputs of InstDecode:"
 				+ "(A) control signals: refer to contUnit output (the helper) | (B) ReadData1: " + ret.get("readdata1") + " | (C) ReadData2: "
-				+ret.get("readdata2") + " | (D) PC: " + PC + " | (E) for sign extension, check SignExtend."+ "\n-------------------------------------------------------------------------------\n");
+				+ret.get("readdata2") + " | (D) PC: " + PC + " | (E) for sign extension, check SignExtend."+
+				" | (F) rt: " + rt + " (G) rd: "+ rd +"\n-------------------------------------------------------------------------------\n");
 		
 		return ret;
 		

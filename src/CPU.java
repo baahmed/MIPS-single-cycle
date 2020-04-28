@@ -74,6 +74,8 @@ public class CPU {
 			int ID_PC   =(Integer)IDresult.get("PCby4"); 
 			String funct = (String)IDresult.get("funct"); 
 			String extended = (String)IDresult.get("extended");
+			String rt = (String)IDresult.get("rt");
+			String rd = (String)IDresult.get("rd");
 			//discrete signals
 			String regDst = (String) signals.get("RegDst");
 			String Branch = (String)signals.get("Branch");
@@ -116,7 +118,7 @@ public class CPU {
 			
 			
 			//Write Back.
-			int writtenData = WB.writeBack(ALUresult, ReadDataFromMem,  MemtoReg, regDst, RegWrite);
+			int writtenData = WB.writeBack(ALUresult, ReadDataFromMem,  MemtoReg, regDst, RegWrite, rt, rd);
 			
 		}
 		

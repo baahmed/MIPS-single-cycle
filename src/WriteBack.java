@@ -7,7 +7,7 @@ public class WriteBack {
 		this.ID = ID;
 	}
 	
-	public int writeBack(int ALUResult, int ReadData, String memToReg, String regDst, String regWrite) {
+	public int writeBack(int ALUResult, int ReadData, String memToReg, String regDst, String regWrite, String rt, String rd) {
 		int writeData = -1; //meaning no data was written
 		//output will be the data to be written into the write register.
 		String display = "Write Back Stage: \n";
@@ -15,14 +15,14 @@ public class WriteBack {
 			
 			if(memToReg.equals("1")) {
 				if(regDst.equals("0")) {
-					ID.writeToRF(ReadData, Integer.parseInt(regDst,2));
+					ID.writeToRF(ReadData, Integer.parseInt(rt,2));
 					writeData = ReadData;
 				}
 			}
 			
 			else if (memToReg.equals("0")) {
 				if(regDst.equals("1")) {
-					ID.writeToRF(ALUResult, Integer.parseInt(regDst,2));
+					ID.writeToRF(ALUResult, Integer.parseInt(rd,2));
 					writeData = ALUResult;
 				}
 			}
