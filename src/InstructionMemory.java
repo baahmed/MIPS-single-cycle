@@ -101,7 +101,7 @@ public class InstructionMemory {
 		 * source: https://en.wikibooks.org/wiki/MIPS_Assembly/MIPS_Details
 		 */
 		
-		//this.addInstruction("00000001001010100100000000100000");
+		this.addInstruction("00000001001010100100000000100000");
 		
 		
 		/*load a subtract
@@ -111,7 +111,7 @@ public class InstructionMemory {
 		 *source: https://www3.ntu.edu.sg/home/smitha/FYP_Gerald/instruction.html
 		 */
 		
-		//addInstruction("00000001000000110001000000100010");
+		addInstruction("00000001000000110001000000100010");
 	
 		
 		/*load a beq
@@ -122,7 +122,7 @@ public class InstructionMemory {
 		 * source: https://stackoverflow.com/questions/21802457/mips-calculating-beq-into-hexadecimal-machine-code 
 		 */
 		
-		//addInstruction("00010001011011010000000000010000");
+		addInstruction("00010001011011010000000000010000");
 
 		
 		/*load a lw
@@ -132,7 +132,7 @@ public class InstructionMemory {
 		 * source: PA5
 		 */
 		
-		//addInstruction("10001100001000110000000000000100");
+		addInstruction("10001100001000110000000000000100");
 		
 		
 		/*load a sw
@@ -142,14 +142,37 @@ public class InstructionMemory {
 		 *source: PA5
 		 */
 		
-		//addInstruction("10101100001000110000000000000100");
+		addInstruction("10101100001000110000000000000100");
 		
-		/*load an and 
-		 * 
+		/*load an AND 
+		 * example: 000000 01101 01110 01100 00000 100100
+		 * should be: and t4, t5, t6 => and $12, $13, $14
+		 * take content of t5 and t6, and "and" it. Put result in t4. 
+		 * source: https://www.eg.bucknell.edu/~csci320/mips_web/           
 		 */
 		
-		 //TODO: ADD these: and, or, slt 
+		addInstruction("00000001101011100110000000100100");
 		
+		
+		/*load an OR
+		 * example: 000000 01101 01011 11000 00000 100101
+		 * should be: or t8 t5 t3 => or $24, $13, $11 
+		 * take content of $13 (15) ,$11 (13) and or it into $24.
+		 * source: https://www.eg.bucknell.edu/~csci320/mips_web/ 
+		 */
+		
+		
+		addInstruction("00000001101010111100000000100101");
+		
+		/*load a SLT
+		 * example: 000000 01000 01111 01110 00000 101010
+		 * should be: slt t6 t0 t7 => slt $14, $8, $15 
+		 * if content of reg8 (10) < content of reg15(17) => put 1 in reg 14.
+		 * source: https://www.eg.bucknell.edu/~csci320/mips_web/ 
+		 */
+		
+		addInstruction("00000001000011110111000000101010");
+				
 		//to verify
 		displayState();
 		
@@ -168,6 +191,10 @@ public class InstructionMemory {
 		boolean ret;
 		ret = (getInstruction()==null)? true : false;
 		return ret;
+	}
+	
+	public static void main(String[] args) {
+		//System.out.println(15 | 13);
 	}
 	
 	

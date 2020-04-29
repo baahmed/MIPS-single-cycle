@@ -142,12 +142,12 @@ public class InstructionDecode {
 			default: CPU.finalOutput+="invalid opcode"; System.out.println("invalid opcode");return null;
 		}
 		
-		System.out.println("Inputs of ContUnit: " + "(A) opcode: " + opcode + "\nOutputs of ConUnit: (A) RegDst: " + signals.get("RegDst") + 
+		System.out.println("Inputs of ContUnit: " + "(A) opcode: " + opcode + "\nOutputs of ContUnit: (A) RegDst: " + signals.get("RegDst") + 
 				" | (B) Branch: " + signals.get("Branch") + " | (C) MemRead: " + signals.get("MemRead") + " | (D) MemToReg: " + signals.get("MemtoReg")
 				+ " | (E) ALUOp: " + signals.get("ALUOp") + " | (F) MemWrite: " + signals.get("MemWrite") + " | (G) ALUSrc: " + signals.get("ALUSrc")+
 				" | (H) RegWrite: " + signals.get("RegWrite") + "\n-------------------------------------------------------------------------------");
 		
-		CPU.finalOutput+=("Inputs of ContUnit: " + "(A) opcode: " + opcode + "\nOutputs of ConUnit: (A) RegDst: " + signals.get("RegDst") + 
+		CPU.finalOutput+=("Inputs of ContUnit: " + "(A) opcode: " + opcode + "\nOutputs of ContUnit: (A) RegDst: " + signals.get("RegDst") + 
 				" | (B) Branch: " + signals.get("Branch") + " | (C) MemRead: " + signals.get("MemRead") + " | (D) MemToReg: " + signals.get("MemtoReg")
 				+ " | (E) ALUOp: " + signals.get("ALUOp") + " | (F) MemWrite: " + signals.get("MemWrite") + " | (G) ALUSrc: " + signals.get("ALUSrc")+
 				" | (H) RegWrite: " + signals.get("RegWrite") + "\n-------------------------------------------------------------------------------\n");

@@ -48,6 +48,7 @@ public class CPU {
 			
 			//clock cycle?
 			System.out.println("Clock Cycle " + i);
+			CPU.finalOutput+=("Clock Cycle " + i + "\n");
 			i++;
 			
 			

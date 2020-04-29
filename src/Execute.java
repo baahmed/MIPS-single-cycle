@@ -45,6 +45,7 @@ public class Execute {
 	
 		
 		//deal with the immediate
+		//TODO: COMPLETELY WRONG
 		String unsigned = signExtend.substring(17,32);
 		int number = Integer.parseInt(unsigned,2);
 				
