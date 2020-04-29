@@ -45,13 +45,7 @@ public class Execute {
 	
 		
 		//deal with the immediate
-		//TODO: COMPLETELY WRONG
-		String unsigned = signExtend.substring(17,32);
-		int number = Integer.parseInt(unsigned,2);
-				
-		if(signExtend.charAt(0)=='1') {
-			number=number*-1;
-		}
+		int number = CPU.twosComplementConvert(signExtend);
 		
 		int ALUnum = number; //to be used as immediate for ALU.
 		

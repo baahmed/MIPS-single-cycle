@@ -195,6 +195,10 @@ public class InstructionMemory {
 	
 	public static void main(String[] args) {
 		//System.out.println(15 | 13);
+		
+		//test cases.
+		System.out.println(CPU.twosComplementConvert("11111111111111111111111111111101"));
+		System.out.println(CPU.twosComplementConvert("00000000000000000000000000001111"));
 	}
 	
 	

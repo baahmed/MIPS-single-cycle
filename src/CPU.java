@@ -47,8 +47,8 @@ public class CPU {
 			
 			
 			//clock cycle?
-			System.out.println("Clock Cycle " + i);
-			CPU.finalOutput+=("Clock Cycle " + i + "\n");
+			System.out.println("-------------------------------------------------------------------------------\n\n\n\nClock Cycle " + i);
+			CPU.finalOutput+=("-------------------------------------------------------------------------------\n\n\n\nClock Cycle " + i + "\n");
 			i++;
 			
 			
@@ -137,6 +137,40 @@ public class CPU {
 			System.out.println(e.getMessage());
 		}
 
+	}
+	
+	
+	public static int twosComplementConvert(String x) {
+		if(x.charAt(0)=='0') {
+			return Integer.parseInt(x,2);
+		}
+		
+		else {
+			//step one: invert.
+			String temp = "";
+			for (int i = 0; i<32;i++) {
+				if((x.charAt(i))=='1') {
+					temp+= "0";
+				}
+				
+				else {
+					temp+="1";
+				}
+			}
+			
+			//no it's no longer negative.
+			//step 2: add 1.
+			int add = Integer.parseInt(temp,2);
+			int temp2 = add+1;
+			
+			//step 3: mult by -1
+			int answer = temp2*-1;
+			
+			return answer;
+		}
+		
+		
+		
 	}
 	
 }
