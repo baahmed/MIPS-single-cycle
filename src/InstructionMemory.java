@@ -57,6 +57,27 @@ public class InstructionMemory {
 		}
 	}
 	
+	
+        public boolean addInstruction(String instr, int loc) {
+	
+		
+		if(instr.length() != 32) {
+			System.out.println("Incorrect instruction size!");
+			CPU.finalOutput+="Incorrect instruction size!\n";
+			return false;
+		}
+		
+		else {
+			
+			for (int i = 0; i<4;i++) {
+				memoryArray[loc] = instr.substring(i*8, (i*8)+8);
+				loc++;
+			}
+
+			return true;
+		}
+	}
+	
 	//to retrieve an instruction @ the PC.
 	public String getInstruction() {
 		
@@ -115,14 +136,14 @@ public class InstructionMemory {
 	
 		
 		/*load a beq
-		 * example: 000100 01011 01101 0000000000010000
+		 * example: 000100 01011 01101 0000000000000101
 		 * should be: BEQ $11, 13, address16
-		 * should check for contents of regs and if equal go to: byte address: 16*4 = 64 + current address + 4
+		 * should check for contents of regs and if equal go to: byte address: 5*4 = 20 + current address + 4 = 20+12=32
 		 * if not equal: PC becomes PC+4
 		 * source: https://stackoverflow.com/questions/21802457/mips-calculating-beq-into-hexadecimal-machine-code 
 		 */
 		
-		addInstruction("00010001011011010000000000010000");
+		addInstruction("00010001011011010000000000000101");
 
 		
 		/*load a lw
@@ -131,8 +152,8 @@ public class InstructionMemory {
 		 * so take content of fourth plus address in $1, then load to reg 3.
 		 * source: PA5
 		 */
-		
-		addInstruction("10001100001000110000000000000100");
+		//TODO: from here, add at the NEW PC
+		addInstruction("10001100001000110000000000000100",32);
 		
 		
 		/*load a sw
@@ -142,7 +163,7 @@ public class InstructionMemory {
 		 *source: PA5
 		 */
 		
-		addInstruction("10101100001000110000000000000100");
+		addInstruction("10101100001000110000000000000100",36);
 		
 		/*load an AND 
 		 * example: 000000 01101 01110 01100 00000 100100
@@ -151,7 +172,7 @@ public class InstructionMemory {
 		 * source: https://www.eg.bucknell.edu/~csci320/mips_web/           
 		 */
 		
-		addInstruction("00000001101011100110000000100100");
+		addInstruction("00000001101011100110000000100100",40);
 		
 		
 		/*load an OR
@@ -162,7 +183,7 @@ public class InstructionMemory {
 		 */
 		
 		
-		addInstruction("00000001101010111100000000100101");
+		addInstruction("00000001101010111100000000100101",44);
 		
 		/*load a SLT
 		 * example: 000000 01000 01111 01110 00000 101010
@@ -171,7 +192,7 @@ public class InstructionMemory {
 		 * source: https://www.eg.bucknell.edu/~csci320/mips_web/ 
 		 */
 		
-		addInstruction("00000001000011110111000000101010");
+		addInstruction("00000001000011110111000000101010", 48);
 				
 		//to verify
 		displayState();

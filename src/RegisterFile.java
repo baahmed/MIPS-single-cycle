@@ -59,6 +59,8 @@ public class RegisterFile {
 			registers[i] = i+2;
 		}
 		
+		registers[11] = registers[13];
+		
 		showState();
 	}
 	
