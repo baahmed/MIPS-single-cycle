@@ -7,17 +7,17 @@ public class CPU {
 	
 	public static String finalOutput = ""; //write this to a file.
 
-	//TODO all outputs in binary
-	//TODO single cycle implementation explanation + justify path
-	//TODO explain format
-	//TODO add 3 examples with branching
-	//TODO: getters and PC?
-	//TODO: explain output
-	//TODO: PC setting in the constructor, i use a getter to set the PC variable in every stage as needed, is this ok?
-
 	/*
-	 * output to look like the project + all stage outputs
+	 * some important notes:
+	 * 1. you see all stages because this is the single cycle implementation - that is, we pass by each stage, choosing only what we need as per 
+	 * the control units. 
+	 * 2. the format used is binary instructions as we see it, the opcode being to the left, and the funct to the right. Therefore, negative indexing
+	 * (MIPS goes from 31 to 0) was not used since Java doesn't support it, and the range was "shifted" by 32 bits to be from 0 to 31.
+	 * 3. please see the finalOutput.txt file. It is written when you run this class. Check the output from there, not from the console. It's neater.
+	 * 
 	 */
+	
+	
 	
 	public static void main(String[] args) {
 		

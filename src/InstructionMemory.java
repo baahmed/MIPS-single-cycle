@@ -137,8 +137,9 @@ public class InstructionMemory {
 		
 		/*load a beq
 		 * example: 000100 01011 01101 0000000000000101
-		 * should be: BEQ $11, 13, address16
-		 * should check for contents of regs and if equal go to: byte address: 5*4 = 20 + current address + 4 = 20+12=32
+		 * should be: BEQ $11, 13, address5
+		 * should check for contents of regs and if equal go to: byte address: 5*4 = 20 + current address + 4 = 20+12=32 )it will be equal. I wanted
+		 * to test for branching.
 		 * if not equal: PC becomes PC+4
 		 * source: https://stackoverflow.com/questions/21802457/mips-calculating-beq-into-hexadecimal-machine-code 
 		 */
@@ -149,10 +150,9 @@ public class InstructionMemory {
 		/*load a lw
 		 * example: 100011 00001 00011 0000000000000100
 		 * should be: LW $3, 4($1)
-		 * so take content of fourth plus address in $1, then load to reg 3.
+		 * so take content of data memory @four plus address in $1, then load to reg 3.
 		 * source: PA5
 		 */
-		//TODO: from here, add at the NEW PC
 		addInstruction("10001100001000110000000000000100",32);
 		
 		
